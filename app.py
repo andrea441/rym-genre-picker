@@ -1,13 +1,17 @@
 import streamlit as st
 from random import choice
-import urllib.parse
+import unicodedata
+import re
 
 st.title("RYM Random Genre Picker")
 
-def generate_rym_url(genre_name):
-    formatted = genre_name.lower().replace(" ", "-")
-    encoded = urllib.parse.quote(formatted)
-    return f"https://rateyourmusic.com/genre/{encoded}/"
+def generate_rym_url(text):
+    text = unicodedata.normalize('NFKD', text)
+    text = text.encode('ascii', 'ignore').decode('utf-8')
+    text = text.lower()
+    text = re.sub(r'[^\w\s-]', '', text)
+    text = re.sub(r'\s+', '-', text)
+    return f"https://rateyourmusic.com/genre/{text}/"
 
 try:
     with open("genres.txt", "r", encoding="utf-8") as file:
