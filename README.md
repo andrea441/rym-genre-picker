@@ -6,6 +6,10 @@ A simple web app that displays a random music genre with a direct link to its Ra
 
 RYM Genre Picker is a small Python project built with Streamlit. It loads a list of music genres from a local text file and allows users to generate a random genre at the click of a button. Each genre shown includes a link to its corresponding page on RateYourMusic.com.
 
+## Live Version
+
+You can try the app directly in your browser: [RYM Genre Picker (Web)](https://rym-genre-picker.streamlit.app/)
+
 ## Getting Started
 
 ### Dependencies
